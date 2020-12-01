@@ -1,0 +1,32 @@
+{
+  "name": "sw-rest-api",
+  "version": "1.0.0",
+  "description": "Node.js rest api using the api from swapi.dev",
+  "main": "index.js",
+  "scripts": {
+    "start": "babel-node src/index.js",
+    "dev": "nodemon --exec babel-node src/index.js",
+    "test": "jest"
+  },
+  "author": "MK <Maciejkopec92@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "babel-jest": "^26.6.3",
+    "bcrypt": "^5.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.18",
+    "node-fetch": "^2.6.1",
+    "validator": "^13.1.17"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/node": "^7.12.6",
+    "@babel/preset-env": "^7.12.7",
+    "jest": "^26.6.3",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.6"
+  }
+}
