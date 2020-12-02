@@ -1,5 +1,6 @@
 import { User } from '../models/user';
 import {fetchName} from '../utils/resources' 
+import { generateToken } from '../utils/tokenUtils';
 
 export const signup = async (req, res) => {
 	if (!req.body.email || !req.body.password) {
@@ -58,7 +59,10 @@ export const signin = async (req, res) => {
       return res.status(401).send({ message: 'Wrong email or password' })
     }
 
-    return res.status(200).send({ message: "Succesfull login in" })
+    const token = generateToken(user)
+    return res.status(201).send({ 
+			message: "Login successfull",
+			token: token })
   } catch (e) {
     res.status(500).send({
       message: `Somthing went wrong, please enter email and password again`

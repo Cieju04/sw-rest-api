@@ -6,6 +6,8 @@ import morgan from 'morgan';
 import cors from 'cors';
 import { dbConnect } from '../config/db'
 import authRouter from './routes/auth'
+import { protectRoutes } from './middleware/protectRoutes'
+import userRouter from './routes/user'
 
 const app = express();
 
@@ -14,8 +16,9 @@ app.use(morgan('dev'));
 app.use(json());
 app.use(urlencoded({ extended: true }));
 
-app.use(authRouter)
+app.use(authRouter);
 
+app.use('/user', protectRoutes, userRouter);
 
 app.set('port', process.env.PORT || 8000);
 
