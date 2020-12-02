@@ -1,12 +1,16 @@
 {
   "name": "sw-rest-api",
   "version": "1.0.0",
-  "description": "Node.js rest api using the api from swapi.dev",
+  "description": "Node.js rest api using the api from https://swapi.dev/",
   "main": "index.js",
   "scripts": {
     "start": "babel-node src/index.js",
     "dev": "nodemon --exec babel-node src/index.js",
     "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cieju04/sw-rest-api.git"
   },
   "author": "MK <Maciejkopec92@gmail.com>",
   "license": "MIT",
