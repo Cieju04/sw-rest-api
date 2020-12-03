@@ -6,7 +6,7 @@ import morgan from 'morgan';
 import cors from 'cors';
 import redis from 'redis';
 import { promisify } from 'util';
-import { dbConnect } from '../config/db'
+import { dbConnect } from './config/db'
 import { protectRoutes } from './middleware/protectRoutes'
 import authRouter from './routes/auth'
 import resourcesRouter from './routes/resources'

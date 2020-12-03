@@ -1,5 +1,6 @@
 import { User } from '../models/user';
-import { verifyToken } from '../utils/tokenUtils'
+import { verifyToken } from '../utils/tokenUtils';
+import regeneratorRuntime from "regenerator-runtime";
 
 export const protectRoutes = async (req, res, next) => {
 	const bearer = req.headers.authorization

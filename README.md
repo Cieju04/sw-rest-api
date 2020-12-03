@@ -4,9 +4,10 @@ Node.js REST API using the API from https://swapi.dev/
 Database: MongoDB
 Cache:    Redis
 
-### RUN WITH BABEL
+### RUN WITH NODE
 * To install: `npm install`
-* To run in dev mode: `npm run dev`
+* To run in prod: `npm run prod`
+* To run in dev: `npm run dev`
 
 ### ENDPOINTS 
  **USER REGISTER, LOGIN AND EDIT**
