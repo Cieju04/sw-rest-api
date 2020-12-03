@@ -7,9 +7,10 @@ import cors from 'cors';
 import redis from 'redis';
 import { promisify } from 'util';
 import { dbConnect } from './config/db'
-import { protectRoutes } from './middleware/protectRoutes'
+import { protectRoutes, protectWithId } from './middleware/protectRoutes'
 import authRouter from './routes/auth'
 import resourcesRouter from './routes/resources'
+import resourcesIdRouter from './routes/resourcesId'
 import userRouter from './routes/user'
 
 const app = express();
@@ -30,6 +31,7 @@ app.use(urlencoded({ extended: true }));
 app.use(authRouter)
 app.use('/user', protectRoutes, userRouter)
 app.use('/resources', protectRoutes, resourcesRouter)
+app.use('/', protectWithId, resourcesIdRouter)
 
 app.set('port', process.env.PORT || 8000);
 

@@ -24,7 +24,7 @@ export const protectRoutes = async (req, res, next) => {
 
 	const user = await User.findById(payload.id)
 	.select('-password')
-  .exec();
+	.exec();
   
 	if (!user) {
 		return res.status(401).send({
@@ -32,6 +32,30 @@ export const protectRoutes = async (req, res, next) => {
 		})
 	}
 
+	req.user = user;
+	next();
+}
+
+export const protectWithId = async (req, res, next) => {
+
+	const id = req.query.id
+	
+	if (!id) {
+		return res.status(401).send({
+			message: 'No authorization - no ID'
+		})
+	}
+	
+	const user = await User.findById(id)
+	.select('-password')
+	.exec();
+
+	if (!user) {
+		return res.status(401).send({
+			message: 'No authorization - wrong user'
+		})
+	}
+	console.log(user);
 	req.user = user;
 	next();
 }

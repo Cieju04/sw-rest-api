@@ -6,7 +6,8 @@ import { setAsync } from '../server';
 export default {
 	async fetchFilms(req, res) {
 		try {
-			const url = await User.findOne(req.user).exec();
+			const url = await User.findById(req.user.id).exec();
+			console.log(url);
 			const urlHelper = url.swUrl.split('/');
 			const urlNumber = urlHelper[urlHelper.length - 2]
 			console.log(urlNumber);
@@ -43,7 +44,7 @@ export default {
 
 	async fetchSpecies(req, res) {
 		try {
-			const url = await User.findOne(req.user).exec();
+			const url = await User.findById(req.user.id).exec();
 			const urlHelper = url.swUrl.split('/');
 			const urlNumber = urlHelper[urlHelper.length - 2]
 			console.log(urlNumber);
@@ -81,7 +82,7 @@ export default {
 
 	async fetchVehicles(req, res) {
 		try {
-			const url = await User.findOne(req.user).exec();
+			const url = await User.findById(req.user.id).exec();
 			const urlHelper = url.swUrl.split('/');
 			const urlNumber = urlHelper[urlHelper.length - 2]
 			console.log(urlNumber);
@@ -126,7 +127,7 @@ export default {
 
 	async fetchStarships(req, res) {
 		try {
-			const url = await User.findOne(req.user).exec();
+			const url = await User.findById(req.user.id).exec();
 			const urlHelper = url.swUrl.split('/');
 			const urlNumber = urlHelper[urlHelper.length - 2]
 			console.log(urlNumber);
@@ -171,7 +172,7 @@ export default {
 
 	async fetchPlanets(req, res) {
 		try {
-			const url = await User.findOne(req.user).exec();
+			const url = await User.findById(req.user.id).exec();
 			const urlHelper = url.swUrl.split('/');
 			const urlNumber = urlHelper[urlHelper.length - 2]
 			console.log(urlNumber);

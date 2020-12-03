@@ -47,7 +47,7 @@ export const signin = async (req, res) => {
 	}
 	
   try {
-    const user = await User.findOne({ email: req.body.email }).exec();
+		const user = await User.findOne({ email: req.body.email }).exec();
 
     if (!user) {
       return res.status(401).send({ message: 'Wrong email or password' })
@@ -61,6 +61,7 @@ export const signin = async (req, res) => {
 
     const token = generateToken(user)
     return res.status(201).send({ 
+			user: user,
 			message: "Login successfull",
 			token: token })
   } catch (e) {

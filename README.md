@@ -20,8 +20,22 @@ PUT /user       // change or update infromation about egsisting user
 DELETE /user    // delete user from the database
 ```
 
- **USER REGISTER, LOGIN AND EDIT**
+ **GETING DATA FROM SW API AFTER USER REGISTER, LOGIN AND TOKEN GENERATE**
+
 ```javascript
+'Given token after login process must be entered in headers => authorization'
+GET /resources/films       //return JSON with all starships available for assigned HERO
+GET /resources/species     //                     species 
+GET /resources/planets     //                     planets
+GET /resources/vehicles    //                     vehicles 
+GET /resources/starships   //                     starships
+```
+
+ **GETTING DATA FROM SW API AFTER ENTERING QUERY ID**
+```javascript
+'To get resources with ID user have to enter Query Params after name of the resources'
+'eg. :http://localhost:8000/planets/?id=5fc820ae9093053c8412970e'
+
 GET /films       //return JSON with all starships available for assigned HERO
 GET /species     //                     species 
 GET /planets     //                     planets
@@ -38,9 +52,9 @@ GET /starships   //                     starships
 :white_check_mark:     Add protection of routes through the created authorization system /user   
 :white_check_mark:     Add protection of routes through the created authorization system /resources  
 :white_check_mark:     Fetch desired resources from Star Wars API assosiated with assigned hero    
-:black_square_button:  Add authorization through user id  
+:white_check_mark:     Add authorization through user id  
 :white_check_mark:     Construct cache mechanizm with the usage of cache modules  
-:black_square_button:  Finish the documentation  
+:white_check_mark:     Finish the documentation  
 :black_square_button:  Generate container and add run method with Docker Compose  
 
 ##### BUGS TO FIX
