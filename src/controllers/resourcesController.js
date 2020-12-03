@@ -12,7 +12,7 @@ export default {
 
 			const characterFilms = [];
 
-			const reply = await getAsync('cacheFilms')
+			const reply = await getAsync(`cacheFilms${req.user.id}`)
 			if (reply) {
 				console.log('Using cacheFilms from cache server');
 				characterFilms.push(JSON.parse(reply))
@@ -29,7 +29,7 @@ export default {
 				const singleJson = await singleFetch.json()
 				characterFilms.push(singleJson)
 			}
-			const saveUrl = await setAsync('cacheFilms', JSON.stringify(characterFilms), 'EX', process.env.CACHE_TIME)
+			const saveUrl = await setAsync(`cacheFilms${req.user.id}`, JSON.stringify(characterFilms), 'EX', process.env.CACHE_TIME)
 
 			res.status(200).json(characterFilms)
 		} catch (e) {
@@ -45,7 +45,7 @@ export default {
 			const urlHelper = url.swUrl.split('/');
 			const urlNumber = urlHelper[urlHelper.length - 2]
 
-			const reply = await getAsync('cacheSpiecies');
+			const reply = await getAsync(`cacheSpiecies${req.user.id}`);
 			if (reply) {
 				const cacheSpiecies = [JSON.parse(reply)]
 				console.log('Using cacheSpiecies from cache server');
@@ -66,7 +66,7 @@ export default {
 
 			const characterSpecies = await fetch(fetchData).then(data => data.json())
 
-			const saveUrl = await setAsync('cacheSpiecies', JSON.stringify(characterSpecies), 'EX', process.env.CACHE_TIME)
+			const saveUrl = await setAsync(`cacheSpiecies${req.user.id}`, JSON.stringify(characterSpecies), 'EX', process.env.CACHE_TIME)
 
 			res.status(200).json(characterSpecies)
 		} catch (e) {
@@ -84,7 +84,7 @@ export default {
 
 			const characterVehicles = [];
 
-			const reply = await getAsync('cacheVehicles')
+			const reply = await getAsync(`cacheVehicles${req.user.id}`)
 			if (reply) {
 				console.log('Using cacheVehicles from cache server');
 				characterVehicles.push(JSON.parse(reply))
@@ -109,7 +109,7 @@ export default {
 				characterVehicles.push(singleJson)
 			}
 
-			const saveUrl = await setAsync('cacheVehicles', JSON.stringify(characterVehicles), 'EX', process.env.CACHE_TIME)
+			const saveUrl = await setAsync(`cacheVehicles${req.user.id}`, JSON.stringify(characterVehicles), 'EX', process.env.CACHE_TIME)
 
 			res.status(200).json(characterVehicles)
 
@@ -128,7 +128,7 @@ export default {
 
 			const characterStarships = [];
 
-			const reply = await getAsync('cacheStarships')
+			const reply = await getAsync(`cacheStarships${req.user.id}`)
 			if (reply) {
 				console.log('Using cacheVehicles from cache server');
 				characterStarships.push(JSON.parse(reply))
@@ -153,7 +153,7 @@ export default {
 				characterStarships.push(singleJson)
 			}
 
-			const saveUrl = await setAsync('cacheStarships', JSON.stringify(characterStarships), 'EX', process.env.CACHE_TIME)
+			const saveUrl = await setAsync(`cacheStarships${req.user.id}`, JSON.stringify(characterStarships), 'EX', process.env.CACHE_TIME)
 
 			res.status(200).json(characterStarships)
 
@@ -170,7 +170,7 @@ export default {
 			const urlHelper = url.swUrl.split('/');
 			const urlNumber = urlHelper[urlHelper.length - 2]
 
-			const reply = await getAsync('cachePlanets');
+			const reply = await getAsync(`cachePlanets${req.user.id}`);
 			if (reply) {
 				const cachePlanets = [JSON.parse(reply)]
 				console.log('Using cacheSpiecies from cache server');
@@ -191,7 +191,7 @@ export default {
 
 			const characterPlanets = await fetch(fetchData).then(data => data.json())
 
-			const saveUrl = await setAsync('cachePlanets', JSON.stringify(characterPlanets), 'EX', process.env.CACHE_TIME)
+			const saveUrl = await setAsync(`cachePlanets${req.user.id}`, JSON.stringify(characterPlanets), 'EX', process.env.CACHE_TIME)
 
 			res.status(200).json([characterPlanets])
 
