@@ -4,21 +4,32 @@ import express from 'express';
 import { json, urlencoded } from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
+import redis from 'redis';
+import { promisify } from 'util';
 import { dbConnect } from '../config/db'
-import authRouter from './routes/auth'
 import { protectRoutes } from './middleware/protectRoutes'
+import authRouter from './routes/auth'
+import resourcesRouter from './routes/resources'
 import userRouter from './routes/user'
 
 const app = express();
+
+const client = redis.createClient({
+	host: process.env.REDIS_HOST,
+	port: process.env.REDIS_PORT
+});
+
+export const getAsync = promisify(client.get).bind(client);
+export const setAsync = promisify(client.set).bind(client);
 
 app.use(cors());
 app.use(morgan('dev'));
 app.use(json());
 app.use(urlencoded({ extended: true }));
 
-app.use(authRouter);
-
-app.use('/user', protectRoutes, userRouter);
+app.use(authRouter)
+app.use('/user', protectRoutes, userRouter)
+app.use('/resources', protectRoutes, resourcesRouter)
 
 app.set('port', process.env.PORT || 8000);
 

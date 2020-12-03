@@ -1,7 +1,8 @@
 # sw-rest-api
 Node.js REST API using the API from https://swapi.dev/
 
-
+Database: MongoDB
+Cache:    Redis
 
 ### RUN WITH BABEL
 * To install: `npm install`
@@ -18,6 +19,14 @@ PUT /user       // change or update infromation about egsisting user
 DELETE /user    // delete user from the database
 ```
 
+ **USER REGISTER, LOGIN AND EDIT**
+```javascript
+GET /films       //return JSON with all starships available for assigned HERO
+GET /species     //                     species 
+GET /planets     //                     planets
+GET /vehicles    //                     vehicles 
+GET /starships   //                     starships
+```
 
 ##### WHAT TO DO LIST
 :white_check_mark:     Shape folder structure, install modules, test local server, connect to DB    
@@ -25,16 +34,16 @@ DELETE /user    // delete user from the database
 :white_check_mark:     Add server-site validation and authentication  
 :white_check_mark:     Create authorization system thorugh JWT module, create and verify token    
 :white_check_mark:     Enable possibility to edit and delete users from the database    
-:white_check_mark:     Add protection of pathways through the created authorization system /user 
-:white_check_mark:     Add protection of pathways through the created authorization system /resources
-:black_square_button:  Fetch desired resources from Star Wars API assosiated with assigned hero  
+:white_check_mark:     Add protection of routes through the created authorization system /user   
+:white_check_mark:     Add protection of routes through the created authorization system /resources  
+:white_check_mark:     Fetch desired resources from Star Wars API assosiated with assigned hero    
 :black_square_button:  Add authorization through user id  
-:black_square_button:  Construct cache mechanizm with the usage of cache modules  
+:white_check_mark:     Construct cache mechanizm with the usage of cache modules  
 :black_square_button:  Finish the documentation  
 :black_square_button:  Generate container and add run method with Docker Compose  
-
 
 ##### BUGS TO FIX
 
 :black_square_button:  After user update, password in database is not hashed  
+:black_square_button:  No specisic error after wrong email type (could be handled on the frontend)
 

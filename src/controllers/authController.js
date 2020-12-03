@@ -1,5 +1,5 @@
 import { User } from '../models/user';
-import {fetchName} from '../utils/resources' 
+import {fetchName} from '../utils/swCharacter' 
 import { generateToken } from '../utils/tokenUtils';
 
 export const signup = async (req, res) => {
