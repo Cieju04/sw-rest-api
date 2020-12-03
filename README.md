@@ -8,6 +8,7 @@ Cache:    Redis
 * To install packages: `npm install`
 * To enable start without babel-node command: `npm run build` or `npm run prod`
 * To run in dev: `npm run dev`
+* Change env.sample to .env and enter your MONGODB database url. 
 
 ### ENDPOINTS 
  **USER REGISTER, LOGIN AND EDIT**
