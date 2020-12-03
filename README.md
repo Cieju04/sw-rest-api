@@ -5,8 +5,8 @@ Database: MongoDB
 Cache:    Redis
 
 ### RUN WITH NODE
-* To install: `npm install`
-* To run in prod: `npm run prod`
+* To install packages: `npm install`
+* To enable start without babel-node command: `npm run build` or `npm run prod`
 * To run in dev: `npm run dev`
 
 ### ENDPOINTS 

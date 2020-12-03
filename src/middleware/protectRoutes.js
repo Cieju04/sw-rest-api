@@ -55,7 +55,6 @@ export const protectWithId = async (req, res, next) => {
 			message: 'No authorization - wrong user'
 		})
 	}
-	console.log(user);
 	req.user = user;
 	next();
 }

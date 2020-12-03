@@ -28,7 +28,7 @@ export const signup = async (req, res) => {
 								...req.body
 							})
 							return res.status(201).json({
-								message: `You've been choosen by: ${user.swCharacter}`
+								message: `You've been choosen by: ${user.swCharacter}, GOOD LUCK!`
 							})
 						})
 				}
@@ -61,7 +61,6 @@ export const signin = async (req, res) => {
 
     const token = generateToken(user)
     return res.status(201).send({ 
-			user: user,
 			message: "Login successfull",
 			token: token })
   } catch (e) {

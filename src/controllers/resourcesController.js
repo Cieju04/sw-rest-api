@@ -7,10 +7,8 @@ export default {
 	async fetchFilms(req, res) {
 		try {
 			const url = await User.findById(req.user.id).exec();
-			console.log(url);
 			const urlHelper = url.swUrl.split('/');
 			const urlNumber = urlHelper[urlHelper.length - 2]
-			console.log(urlNumber);
 
 			const characterFilms = [];
 
@@ -33,7 +31,6 @@ export default {
 			}
 			const saveUrl = await setAsync('cacheFilms', JSON.stringify(characterFilms), 'EX', process.env.CACHE_TIME)
 
-			console.log(saveUrl);
 			res.status(200).json(characterFilms)
 		} catch (e) {
 			res.status(500).json({
@@ -47,7 +44,6 @@ export default {
 			const url = await User.findById(req.user.id).exec();
 			const urlHelper = url.swUrl.split('/');
 			const urlNumber = urlHelper[urlHelper.length - 2]
-			console.log(urlNumber);
 
 			const reply = await getAsync('cacheSpiecies');
 			if (reply) {
@@ -85,7 +81,6 @@ export default {
 			const url = await User.findById(req.user.id).exec();
 			const urlHelper = url.swUrl.split('/');
 			const urlNumber = urlHelper[urlHelper.length - 2]
-			console.log(urlNumber);
 
 			const characterVehicles = [];
 
@@ -130,7 +125,6 @@ export default {
 			const url = await User.findById(req.user.id).exec();
 			const urlHelper = url.swUrl.split('/');
 			const urlNumber = urlHelper[urlHelper.length - 2]
-			console.log(urlNumber);
 
 			const characterStarships = [];
 
@@ -175,7 +169,6 @@ export default {
 			const url = await User.findById(req.user.id).exec();
 			const urlHelper = url.swUrl.split('/');
 			const urlNumber = urlHelper[urlHelper.length - 2]
-			console.log(urlNumber);
 
 			const reply = await getAsync('cachePlanets');
 			if (reply) {
