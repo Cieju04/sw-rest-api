@@ -12,7 +12,7 @@ export default {
 
 			const characterFilms = [];
 
-			const reply = await getAsync(`cacheFilms${req.user.id}`)
+				const reply = await getAsync(`cacheFilms${req.user.id}`)
 			if (reply) {
 				console.log('Using cacheFilms from cache server');
 				characterFilms.push(JSON.parse(reply))

@@ -7,11 +7,11 @@ import cors from 'cors';
 import redis from 'redis';
 import { promisify } from 'util';
 import { dbConnect } from './config/db'
-import { protectRoutes, protectWithId } from './middleware/protectRoutes'
+import { protectRoutes } from './middleware/protectRoutes'
 import authRouter from './routes/auth'
 import resourcesRouter from './routes/resources'
-import resourcesIdRouter from './routes/resourcesId'
 import userRouter from './routes/user'
+import "regenerator-runtime/runtime.js";
 
 const app = express();
 
@@ -31,9 +31,8 @@ app.use(urlencoded({ extended: true }));
 app.use(authRouter)
 app.use('/user', protectRoutes, userRouter)
 app.use('/resources', protectRoutes, resourcesRouter)
-app.use('/', protectWithId, resourcesIdRouter)
 
-app.set('port', process.env.PORT || 8000);
+app.set('port', process.env.PORT || 5000);
 
 export const startServer = async () => {
   try {
@@ -48,3 +47,6 @@ export const startServer = async () => {
     console.log(err);
   }
 }
+
+export {app}
+

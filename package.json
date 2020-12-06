@@ -5,9 +5,13 @@
   "main": "src/index.js",
   "scripts": {
     "build": "babel src --out-dir dist",
-    "dev": "nodemon dist/index.js",
+    "dev": "nodemon --exec babel-node src/index.js",
     "start": "node dist/index.js",
-    "prod": "npm run build && npm run start"
+    "prod": "npm run build && npm run start",
+    "test": "jest --watch"
+  },
+  "jest": {
+    "testEnvironment": "node"
   },
   "repository": {
     "type": "git",
@@ -16,7 +20,6 @@
   "author": "Cieju <Maciejkopec92@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "babel-jest": "^26.6.3",
     "bcrypt": "^5.0.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
@@ -29,12 +32,12 @@
     "validator": "^13.1.17"
   },
   "devDependencies": {
-    "@babel/cli": "^7.12.8",
     "@babel/core": "^7.12.9",
     "@babel/node": "^7.12.6",
     "@babel/preset-env": "^7.12.7",
     "jest": "^26.6.3",
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.6"
+    "nodemon": "^2.0.6",
+    "supertest": "^6.0.1"
   }
 }

@@ -1,6 +1,8 @@
 import { User } from '../models/user';
 import {fetchName} from '../utils/swCharacter' 
 import { generateToken } from '../utils/tokenUtils';
+import regeneratorRuntime from "regenerator-runtime";
+
 
 export const signup = async (req, res) => {
 	if (!req.body.email || !req.body.password) {
